@@ -24,7 +24,7 @@ const ThemeContext = createContext({
   toggleTheme: () => {},
 });
 
-export const ThemeProvider = ({ children }:any) => {
+export const ThemeProvider = ({ children }) => {
   const systemColorScheme = useColorScheme();
   const [theme, setTheme] = useState(systemColorScheme === "dark" ? DarkTheme : LightTheme);
 
@@ -38,7 +38,7 @@ export const ThemeProvider = ({ children }:any) => {
       }
     };
     loadTheme();
-  }, []);
+  }, [systemColorScheme]);
 
   const toggleTheme = async () => {
     const newTheme = theme === DarkTheme ? LightTheme : DarkTheme;
